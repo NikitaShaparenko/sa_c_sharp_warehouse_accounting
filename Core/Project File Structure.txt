@@ -1,0 +1,8 @@
+﻿\\*.whaprj
+
+ZIP архив (шифрован паролем если указано)
+
+В нём:
+\\whaprj\\gbs.db - Global Base of Signatures Database
+\\whaprj\\gbh.db - Global Base of History Database
+\\whaprj\\settings.cfg - Settings Configuration File

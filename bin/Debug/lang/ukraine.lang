@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+<lbl_h1>Контрагенты</lbl_h1>
+<lbl_h2>Товары</lbl_h2>
+<lbl_h3>Наличие</lbl_h3>
+<lbl_h4>Цены</lbl_h4>
+<lbl_h5>Покупка</lbl_h5>
+<lbl_h6>Продажа</lbl_h6>
+<gc_fh>Карточка товара</gc_fh>
+<gc_h1>Код</gc_h1>
+<gc_h2>Наименование</gc_h2>
+<gc_h3>Сокращение</gc_h3>
+<gc_h4>Теги</gc_h4>
+<gc_h5>Штрих код</gc_h5>
+<gc_h6>Минимальная заявка</gc_h6>
+<gc_h7>Закупка</gc_h7>
+<gc_h8>Наценка</gc_h8>
+<gc_h9>Группа</gc_h9>
+<gc_b1>Сохранить</gc_b1>
+<gc_b2>Закрыть</gc_b2>
+<tb_c>Код</tb_c>
+<tb_n>Наименование</tb_n>
+<tb_p>Наценка</tb_p>
+<lbl_file_h1>Версии данных</lbl_file_h1>
+<lbl_file_h2>Обмен данными</lbl_file_h2>
+<lbl_file_h3>Настройки</lbl_file_h3>
+<lbl_file_h4>Информация</lbl_file_h4>
+<lbl_file_h5>О программе</lbl_file_h5>
+<lbl_file_hr1>Управление данными</lbl_file_hr1>
+<lbl_file_hr2>Копии данных</lbl_file_hr2>
+<lbl_file_hr3>Расположение программы:</lbl_file_hr3>
+<lbl_file_hr4>Интервал (секунд)</lbl_file_hr4>
+<b_fhr1>Сохранить копию</b_fhr1>
+<b_fhr2>Загрузить копию</b_fhr2>
+<b_fhr3>Удалить все копии</b_fhr3>
+<cb_file_hr1>Автосохранение</cb_file_hr1>
+</DocumentElement>

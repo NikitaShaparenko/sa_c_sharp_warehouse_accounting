@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <GBH>
+    <GBHDateColumn>date</GBHDateColumn>
+    <GBHTimeColumn>time</GBHTimeColumn>
+    <GBHName>string</GBHName>
+    <DGHAction>string</DGHAction>
+    <DGHNumber>int</DGHNumber>
+    <DGHBecame>int</DGHBecame>
+    <DGHDocument>string</DGHDocument>
+  </GBH>
+</DocumentElement>

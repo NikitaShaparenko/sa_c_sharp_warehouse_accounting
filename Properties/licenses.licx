@@ -1,0 +1,5 @@
+Nevron.UI.WinForm.Controls.NButton, Nevron.Presentation, Version=19.9.5.12, Culture=neutral, PublicKeyToken=6656c5d1103e75cc
+Nevron.UI.WinForm.Controls.NCheckBox, Nevron.Presentation, Version=19.9.5.12, Culture=neutral, PublicKeyToken=6656c5d1103e75cc
+Nevron.UI.WinForm.Docking.NDockManager, Nevron.UI.WinForm.Docking, Version=19.9.5.12, Culture=neutral, PublicKeyToken=446d8963349a628a
+Nevron.UI.WinForm.Controls.NFolderLookup, Nevron.Presentation, Version=19.9.5.12, Culture=neutral, PublicKeyToken=6656c5d1103e75cc
+Nevron.UI.WinForm.Controls.NRadioButton, Nevron.Presentation, Version=19.9.5.12, Culture=neutral, PublicKeyToken=6656c5d1103e75cc

@@ -1,0 +1,1279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DB79745F-6CDC-4159-B561-7979D920200B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WarehouseAccounting</RootNamespace>
+    <AssemblyName>WarehouseAccounting</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>WarehouseAccounting.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetZip, Version=1.13.3.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.13.3\lib\net40\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\Desktop\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Nevron.Presentation, Version=19.9.5.12, Culture=neutral, PublicKeyToken=6656c5d1103e75cc" />
+    <Reference Include="Nevron.System, Version=19.9.5.12, Culture=neutral, PublicKeyToken=6a987feae5e496fd" />
+    <Reference Include="Nevron.UI.WinForm.Docking, Version=19.9.5.12, Culture=neutral, PublicKeyToken=446d8963349a628a" />
+    <Reference Include="RestSharp, Version=106.6.10.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.6.10\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account.Designer.cs">
+      <DependentUpon>Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActionTracker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ActionTracker.Designer.cs">
+      <DependentUpon>ActionTracker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AvaliableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AvaliableControl.Designer.cs">
+      <DependentUpon>AvaliableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ButtonZ.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\AwaitingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\AwaitingForm.Designer.cs">
+      <DependentUpon>AwaitingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Core.cs" />
+    <Compile Include="Core\Email.cs" />
+    <Compile Include="Core\ErrorExcelMessage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\ErrorExcelMessage.Designer.cs">
+      <DependentUpon>ErrorExcelMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\GlobalBaseActions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\GlobalBaseActions.Designer.cs">
+      <DependentUpon>GlobalBaseActions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\GlobalBaseContragents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\GlobalBaseContragents.Designer.cs">
+      <DependentUpon>GlobalBaseContragents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\GlobalBaseGroups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\GlobalBaseGroups.Designer.cs">
+      <DependentUpon>GlobalBaseGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\GlobalBaseHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\GlobalBaseHistory.Designer.cs">
+      <DependentUpon>GlobalBaseHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\GlobalBaseProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\GlobalBaseProvider.Designer.cs">
+      <DependentUpon>GlobalBaseProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\GlobalBaseSignature.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\GlobalBaseSignature.Designer.cs">
+      <DependentUpon>GlobalBaseSignature.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\GlobalBaseVerification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\GlobalBaseVerification.Designer.cs">
+      <DependentUpon>GlobalBaseVerification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ImportExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\ImportExcel.Designer.cs">
+      <DependentUpon>ImportExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ImportExcelDGV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\ImportExcelDGV.Designer.cs">
+      <DependentUpon>ImportExcelDGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ImportExcelUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\ImportExcelUC.Designer.cs">
+      <DependentUpon>ImportExcelUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\MathProcessor.cs" />
+    <Compile Include="Core\PasswordEntering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\PasswordEntering.Designer.cs">
+      <DependentUpon>PasswordEntering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Paying.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Paying.Designer.cs">
+      <DependentUpon>Paying.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\SMS.cs" />
+    <Compile Include="Core\SMS_epochta.cs" />
+    <Compile Include="Core\Telegram.cs" />
+    <Compile Include="Core\Viber.cs" />
+    <Compile Include="Core\WhatsApp.cs" />
+    <Compile Include="DropDownMenu\CustomDropDownMenuContragents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DropDownMenu\CustomDropDownMenuContragents.Designer.cs">
+      <DependentUpon>CustomDropDownMenuContragents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DropDownMenu\CustomDropDownMenuGoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DropDownMenu\CustomDropDownMenuGoods.Designer.cs">
+      <DependentUpon>CustomDropDownMenuGoods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DropDownMenu\CustomDropDownMenuGoodsNaming.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DropDownMenu\CustomDropDownMenuGoodsNaming.Designer.cs">
+      <DependentUpon>CustomDropDownMenuGoodsNaming.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DropDownMenu\CustomRibbonGoodMaking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DropDownMenu\CustomRibbonGoodMaking.Designer.cs">
+      <DependentUpon>CustomRibbonGoodMaking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuAvaliable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuAvaliable.Designer.cs">
+      <DependentUpon>DropDownMenuAvaliable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuBuying.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuBuying.Designer.cs">
+      <DependentUpon>DropDownMenuBuying.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuCounterparties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuCounterparties.Designer.cs">
+      <DependentUpon>DropDownMenuCounterparties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuGoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuGoods.Designer.cs">
+      <DependentUpon>DropDownMenuGoods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuPricelistPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuPricelistPrint.Designer.cs">
+      <DependentUpon>DropDownMenuPricelistPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuPricePrinting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuPricePrinting.Designer.cs">
+      <DependentUpon>DropDownMenuPricePrinting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuPrices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuPrices.Designer.cs">
+      <DependentUpon>DropDownMenuPrices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuProvider.Designer.cs">
+      <DependentUpon>DropDownMenuProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuSelling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DropDownMenu\DropDownMenuSelling.Designer.cs">
+      <DependentUpon>DropDownMenuSelling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditorContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditorContainer.Designer.cs">
+      <DependentUpon>EditorContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Export.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Export.Designer.cs">
+      <DependentUpon>Export.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileHeader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileHeader.designer.cs">
+      <DependentUpon>FileHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileOptionsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FileOptionsControl.Designer.cs">
+      <DependentUpon>FileOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GoodCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GoodCard.designer.cs">
+      <DependentUpon>GoodCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HomeControl.Designer.cs">
+      <DependentUpon>HomeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeControl2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeControl2.Designer.cs">
+      <DependentUpon>HomeControl2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Import.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Import.Designer.cs">
+      <DependentUpon>Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Indicator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Indicator.Designer.cs">
+      <DependentUpon>Indicator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IndicatorButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IndicatorButton.Designer.cs">
+      <DependentUpon>IndicatorButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Info_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Info_OptionControl.Designer.cs">
+      <DependentUpon>Info_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputBox.Designer.cs">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Log.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Log.designer.cs">
+      <DependentUpon>Log.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecentProjectsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RecentProjectsControl.Designer.cs">
+      <DependentUpon>RecentProjectsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomContragentsClients.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomContragentsClients.Designer.cs">
+      <DependentUpon>CustomContragentsClients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonContragentsChecking.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonContragentsChecking.Designer.cs">
+      <DependentUpon>CustomRibbonContragentsChecking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonGoods.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonGoods.Designer.cs">
+      <DependentUpon>CustomRibbonGoods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonGoodsBarcodes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonGoodsBarcodes.Designer.cs">
+      <DependentUpon>CustomRibbonGoodsBarcodes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonGoodsBarcodeSettingsPreview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonGoodsBarcodeSettingsPreview.Designer.cs">
+      <DependentUpon>CustomRibbonGoodsBarcodeSettingsPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonGoodsGroupList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonGoodsGroupList.Designer.cs">
+      <DependentUpon>CustomRibbonGoodsGroupList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonGoodsShortName.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonGoodsShortName.Designer.cs">
+      <DependentUpon>CustomRibbonGoodsShortName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonHistory.Designer.cs">
+      <DependentUpon>CustomRibbonHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonOrders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonOrders.Designer.cs">
+      <DependentUpon>CustomRibbonOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonOrders2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonOrders2.Designer.cs">
+      <DependentUpon>CustomRibbonOrders2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonPrices.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonPrices.Designer.cs">
+      <DependentUpon>CustomRibbonPrices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonPricesDynamicUpcoming.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonPricesDynamicUpcoming.Designer.cs">
+      <DependentUpon>CustomRibbonPricesDynamicUpcoming.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonPricesStaticUpcoming.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonPricesStaticUpcoming.Designer.cs">
+      <DependentUpon>CustomRibbonPricesStaticUpcoming.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonRequests.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonRequests.Designer.cs">
+      <DependentUpon>CustomRibbonRequests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonRequests2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\CustomRibbonRequests2.Designer.cs">
+      <DependentUpon>CustomRibbonRequests2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonAvaliableEnteringBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonAvaliableEnteringBalance.Designer.cs">
+      <DependentUpon>RibbonAvaliableEnteringBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonAvaliableForgottenGood.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonAvaliableForgottenGood.Designer.cs">
+      <DependentUpon>RibbonAvaliableForgottenGood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonAvaliableRevizion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonAvaliableRevizion.Designer.cs">
+      <DependentUpon>RibbonAvaliableRevizion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonAvaliableSorting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonAvaliableSorting.Designer.cs">
+      <DependentUpon>RibbonAvaliableSorting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonBuying.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonBuying.Designer.cs">
+      <DependentUpon>RibbonBuying.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonContragents.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonContragents.Designer.cs">
+      <DependentUpon>RibbonContragents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsDefault.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsDefault.Designer.cs">
+      <DependentUpon>RibbonGoodsDefault.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsImages.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsImages.Designer.cs">
+      <DependentUpon>RibbonGoodsImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsBarcode.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsBarcode.Designer.cs">
+      <DependentUpon>RibbonGoodsBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsGroups.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsGroups.Designer.cs">
+      <DependentUpon>RibbonGoodsGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsLinks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsLinks.Designer.cs">
+      <DependentUpon>RibbonGoodsLinks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsMaxBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsMaxBalance.Designer.cs">
+      <DependentUpon>RibbonGoodsMaxBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsMinBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsMinBalance.Designer.cs">
+      <DependentUpon>RibbonGoodsMinBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsMinRequest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsMinRequest.Designer.cs">
+      <DependentUpon>RibbonGoodsMinRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsProviders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsProviders.Designer.cs">
+      <DependentUpon>RibbonGoodsProviders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsReduction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsReduction.Designer.cs">
+      <DependentUpon>RibbonGoodsReduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsTags.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonGoodsTags.Designer.cs">
+      <DependentUpon>RibbonGoodsTags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonPricesDependences.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonPricesDependences.Designer.cs">
+      <DependentUpon>RibbonPricesDependences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonPriceSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonPriceSettings.Designer.cs">
+      <DependentUpon>RibbonPriceSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonPricesPriceList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonPricesPriceList.Designer.cs">
+      <DependentUpon>RibbonPricesPriceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonPricesPriceProviders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonPricesPriceProviders.Designer.cs">
+      <DependentUpon>RibbonPricesPriceProviders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonSelling.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonSubMenu\RibbonSelling.Designer.cs">
+      <DependentUpon>RibbonSelling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShapedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StatusBarControls\LowHDDStatusWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StatusBarControls\LowHDDStatusWindow.Designer.cs">
+      <DependentUpon>LowHDDStatusWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBarControls\LowRAMStatusWindowControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StatusBarControls\LowRAMStatusWindowControl.Designer.cs">
+      <DependentUpon>LowRAMStatusWindowControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MinMaxButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="New_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="New_OptionControl.Designer.cs">
+      <DependentUpon>New_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpenExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpenExcel.designer.cs">
+      <DependentUpon>OpenExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Open_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Open_OptionControl.Designer.cs">
+      <DependentUpon>Open_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PanelX.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Print_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Print_OptionControl.Designer.cs">
+      <DependentUpon>Print_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveAs_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SaveAs_OptionControl.Designer.cs">
+      <DependentUpon>SaveAs_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="SettingsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Share_OptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Share_OptionControl.Designer.cs">
+      <DependentUpon>Share_OptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Startup.designer.cs">
+      <DependentUpon>Startup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBarControls\SNSStatusControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StatusBarControls\SNSStatusControl.Designer.cs">
+      <DependentUpon>SNSStatusControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBarProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatusBarProvider.Designer.cs">
+      <DependentUpon>StatusBarProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SwitcherPages.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SwitcherPages.Designer.cs">
+      <DependentUpon>SwitcherPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TabPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Temp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Temp.Designer.cs">
+      <DependentUpon>Temp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TemplatesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TemplatesControl.Designer.cs">
+      <DependentUpon>TemplatesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonControl.Designer.cs">
+      <DependentUpon>RibbonControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Account.resx">
+      <DependentUpon>Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActionTracker.resx">
+      <DependentUpon>ActionTracker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AvaliableControl.resx">
+      <DependentUpon>AvaliableControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\AwaitingForm.resx">
+      <DependentUpon>AwaitingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\ErrorExcelMessage.resx">
+      <DependentUpon>ErrorExcelMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\GlobalBaseActions.resx">
+      <DependentUpon>GlobalBaseActions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\GlobalBaseContragents.resx">
+      <DependentUpon>GlobalBaseContragents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\GlobalBaseGroups.resx">
+      <DependentUpon>GlobalBaseGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\GlobalBaseHistory.resx">
+      <DependentUpon>GlobalBaseHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\GlobalBaseProvider.resx">
+      <DependentUpon>GlobalBaseProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\GlobalBaseSignature.resx">
+      <DependentUpon>GlobalBaseSignature.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\GlobalBaseVerification.resx">
+      <DependentUpon>GlobalBaseVerification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\ImportExcel.resx">
+      <DependentUpon>ImportExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\ImportExcelDGV.resx">
+      <DependentUpon>ImportExcelDGV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\ImportExcelUC.resx">
+      <DependentUpon>ImportExcelUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\PasswordEntering.resx">
+      <DependentUpon>PasswordEntering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\Paying.resx">
+      <DependentUpon>Paying.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropDownMenu\CustomDropDownMenuContragents.resx">
+      <DependentUpon>CustomDropDownMenuContragents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropDownMenu\CustomDropDownMenuGoods.resx">
+      <DependentUpon>CustomDropDownMenuGoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropDownMenu\CustomDropDownMenuGoodsNaming.resx">
+      <DependentUpon>CustomDropDownMenuGoodsNaming.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropDownMenu\CustomRibbonGoodMaking.resx">
+      <DependentUpon>CustomRibbonGoodMaking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropDownMenu\DropDownMenuAvaliable.resx">
+      <DependentUpon>DropDownMenuAvaliable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropDownMenu\DropDownMenuBuying.resx">
+      <DependentUpon>DropDownMenuBuying.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropDownMenu\DropDownMenuCounterparties.resx">
+      <DependentUpon>DropDownMenuCounterparties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropDownMenu\DropDownMenuGoods.resx">
+      <DependentUpon>DropDownMenuGoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropDownMenu\DropDownMenuPricelistPrint.resx">
+      <DependentUpon>DropDownMenuPricelistPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropDownMenu\DropDownMenuPricePrinting.resx">
+      <DependentUpon>DropDownMenuPricePrinting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropDownMenu\DropDownMenuPrices.resx">
+      <DependentUpon>DropDownMenuPrices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropDownMenu\DropDownMenuProvider.resx">
+      <DependentUpon>DropDownMenuProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropDownMenu\DropDownMenuSelling.resx">
+      <DependentUpon>DropDownMenuSelling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditorContainer.resx">
+      <DependentUpon>EditorContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export.resx">
+      <DependentUpon>Export.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileHeader.resx">
+      <DependentUpon>FileHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileOptionsControl.resx">
+      <DependentUpon>FileOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GoodCard.resx">
+      <DependentUpon>GoodCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeControl.resx">
+      <DependentUpon>HomeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeControl2.resx">
+      <DependentUpon>HomeControl2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import.resx">
+      <DependentUpon>Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IndicatorButton.resx">
+      <DependentUpon>IndicatorButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Info_OptionControl.resx">
+      <DependentUpon>Info_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputBox.resx">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Log.resx">
+      <DependentUpon>Log.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="RecentProjectsControl.resx">
+      <DependentUpon>RecentProjectsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\CustomContragentsClients.resx">
+      <DependentUpon>CustomContragentsClients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\CustomRibbonContragentsChecking.resx">
+      <DependentUpon>CustomRibbonContragentsChecking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\CustomRibbonGoods.resx">
+      <DependentUpon>CustomRibbonGoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\CustomRibbonGoodsBarcodes.resx">
+      <DependentUpon>CustomRibbonGoodsBarcodes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\CustomRibbonGoodsBarcodeSettingsPreview.resx">
+      <DependentUpon>CustomRibbonGoodsBarcodeSettingsPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\CustomRibbonGoodsGroupList.resx">
+      <DependentUpon>CustomRibbonGoodsGroupList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\CustomRibbonGoodsShortName.resx">
+      <DependentUpon>CustomRibbonGoodsShortName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\CustomRibbonHistory.resx">
+      <DependentUpon>CustomRibbonHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\CustomRibbonOrders.resx">
+      <DependentUpon>CustomRibbonOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\CustomRibbonOrders2.resx">
+      <DependentUpon>CustomRibbonOrders2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\CustomRibbonPrices.resx">
+      <DependentUpon>CustomRibbonPrices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\CustomRibbonPricesDynamicUpcoming.resx">
+      <DependentUpon>CustomRibbonPricesDynamicUpcoming.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\CustomRibbonPricesStaticUpcoming.resx">
+      <DependentUpon>CustomRibbonPricesStaticUpcoming.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\CustomRibbonRequests.resx">
+      <DependentUpon>CustomRibbonRequests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\CustomRibbonRequests2.resx">
+      <DependentUpon>CustomRibbonRequests2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonAvaliableEnteringBalance.resx">
+      <DependentUpon>RibbonAvaliableEnteringBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonAvaliableForgottenGood.resx">
+      <DependentUpon>RibbonAvaliableForgottenGood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonAvaliableRevizion.resx">
+      <DependentUpon>RibbonAvaliableRevizion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonAvaliableSorting.resx">
+      <DependentUpon>RibbonAvaliableSorting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonBuying.resx">
+      <DependentUpon>RibbonBuying.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonContragents.resx">
+      <DependentUpon>RibbonContragents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonGoodsBarcode.resx">
+      <DependentUpon>RibbonGoodsBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonGoodsDefault.resx">
+      <DependentUpon>RibbonGoodsDefault.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonGoodsGroups.resx">
+      <DependentUpon>RibbonGoodsGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonGoodsImages.resx">
+      <DependentUpon>RibbonGoodsImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonGoodsLinks.resx">
+      <DependentUpon>RibbonGoodsLinks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonGoodsMaxBalance.resx">
+      <DependentUpon>RibbonGoodsMaxBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonGoodsMinBalance.resx">
+      <DependentUpon>RibbonGoodsMinBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonGoodsMinRequest.resx">
+      <DependentUpon>RibbonGoodsMinRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonGoodsProviders.resx">
+      <DependentUpon>RibbonGoodsProviders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonGoodsReduction.resx">
+      <DependentUpon>RibbonGoodsReduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonGoodsTags.resx">
+      <DependentUpon>RibbonGoodsTags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonPricesDependences.resx">
+      <DependentUpon>RibbonPricesDependences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonPriceSettings.resx">
+      <DependentUpon>RibbonPriceSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonPricesPriceList.resx">
+      <DependentUpon>RibbonPricesPriceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonPricesPriceProviders.resx">
+      <DependentUpon>RibbonPricesPriceProviders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonSubMenu\RibbonSelling.resx">
+      <DependentUpon>RibbonSelling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatusBarControls\LowHDDStatusWindow.resx">
+      <DependentUpon>LowHDDStatusWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatusBarControls\LowRAMStatusWindowControl.resx">
+      <DependentUpon>LowRAMStatusWindowControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_OptionControl.resx">
+      <DependentUpon>New_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenExcel.resx">
+      <DependentUpon>OpenExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Open_OptionControl.resx">
+      <DependentUpon>Open_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print_OptionControl.resx">
+      <DependentUpon>Print_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SaveAs_OptionControl.resx">
+      <DependentUpon>SaveAs_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Share_OptionControl.resx">
+      <DependentUpon>Share_OptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Startup.resx">
+      <DependentUpon>Startup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatusBarControls\SNSStatusControl.resx">
+      <DependentUpon>SNSStatusControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatusBarProvider.resx">
+      <DependentUpon>StatusBarProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SwitcherPages.resx">
+      <DependentUpon>SwitcherPages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Temp.resx">
+      <DependentUpon>Temp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TemplatesControl.resx">
+      <DependentUpon>TemplatesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonControl.resx">
+      <DependentUpon>RibbonControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\index.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\Telegram_Messenger50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\Viber50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\WhatsApp50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\RecentFiles50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\OneDrive50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\Computer50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\googledrive50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\Details50px.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\Info50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\info250px.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\no50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\ok50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\no41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\ok41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\printer50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\WarehouseIcon70px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\excel41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\printer41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\HardDrive256px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\Memory256px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\HardDrive100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\Memory100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\HardDrive150px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\Memory150px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\Telegram_Messenger100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\ok3-50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\email50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\sms50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\ok3-41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unprotected_db44px.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\protected_db44px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\unprotected_db44px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\barcode50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\links50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\links41px.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\barcode41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\reduction41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\default_entering41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\tags41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\images41px.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\agent_provider41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\groups41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\minimum_balance_41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\balance41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\min_balance41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\cut41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\links241px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\PricesProviders41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\settings41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\forgottengood41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\EnteringPreorder41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\revision41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\sorting41px.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\outcart41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\back_arrow_41px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pics\protected70px.png" />
+    <None Include="bin\Debug\pics\close41px.png" />
+    <None Include="bin\Debug\pics\flash41px.png" />
+    <None Include="bin\Debug\pics\delete41px.png" />
+    <None Include="bin\Debug\pics\pics41px.png" />
+    <None Include="bin\Debug\pics\quit41px.png" />
+    <None Include="bin\Debug\pics\newdoc41px.png" />
+    <None Include="bin\Debug\pics\filter41px.png" />
+    <None Include="bin\Debug\pics\filter41px2.png" />
+    <None Include="bin\Debug\pics\import41px.png" />
+    <None Include="bin\Debug\pics\message41px.png" />
+    <None Include="bin\Debug\pics\memory41px.png" />
+    <None Include="bin\Debug\pics\catalog41px.png" />
+    <None Include="bin\Debug\pics\money41px.png" />
+    <None Include="bin\Debug\pics\recount41px.png" />
+    <None Include="bin\Debug\pics\percent41px.png" />
+    <None Include="bin\Debug\pics\windows41px.png" />
+    <None Include="bin\Debug\pics\cancel41px.png" />
+    <None Include="bin\Debug\pics\calc41px.png" />
+    <None Include="bin\Debug\pics\groups41px2.png" />
+    <None Include="bin\Debug\pics\refresh41px.png" />
+    <None Include="bin\Debug\pics\volume-24-512.png" />
+    <None Include="bin\Debug\pics\speaker41px.png" />
+    <None Include="bin\Debug\pics\edit41px.png" />
+    <None Include="bin\Debug\pics\calc41px2.png" />
+    <None Include="bin\Debug\pics\revise41px.png" />
+    <None Include="bin\Debug\pics\replacing41px.png" />
+    <None Include="bin\Debug\pics\Thumbtack41px.png" />
+    <None Include="bin\Debug\pics\abc41px.png" />
+    <None Include="bin\Debug\pics\list41px.png" />
+    <None Include="bin\Debug\pics\searching41px.png" />
+    <None Include="bin\Debug\pics\add41px.png" />
+    <None Include="bin\Debug\pics\clipboard41px.png" />
+    <None Include="bin\Debug\pics\currentptr_1.png" />
+    <None Include="bin\Debug\pics\allselected_2_41px.png" />
+    <None Include="bin\Debug\pics\frombigletter_3_41px.png" />
+    <None Include="bin\Debug\pics\fractions_4_41px.png" />
+    <None Include="bin\Debug\pics\diametrsign_5_41px.png" />
+    <None Include="bin\Debug\pics\deletefirstword_6_41px.png" />
+    <None Include="bin\Debug\pics\deletelastword_7_41px.png" />
+    <None Include="bin\Debug\pics\addwordfrombeginning_8_41px.png" />
+    <None Include="bin\Debug\pics\addwordintheend_9_41px.png" />
+    <None Include="bin\Debug\pics\addquotes_10_41px.png" />
+    <None Include="bin\Debug\pics\deletemychspaces_11_41px.png" />
+    <None Include="bin\Debug\pics\deletestartendspaces_12_41px.png" />
+    <None Include="bin\Debug\pics\closequotes_13_41px.png" />
+    <None Include="bin\Debug\pics\connect14_41px.png" />
+    <Content Include="Core\Project File Structure.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="FileSyncLibrary">
+      <Guid>{909A6CCD-6810-46C4-89DF-05BE7EB61E6C}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
